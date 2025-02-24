@@ -1,0 +1,174 @@
+.live-score-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #212121;
+}
+
+.live-score-view h1 {
+  font-size: 2.5rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.match-list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.match-list h2 {
+  font-size: 1.5rem;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.match-list p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.match-list ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.match-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.match-list li button {
+  padding: 5px 10px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.match-list li button:hover {
+  background-color: #115293;
+}
+
+.live-score {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.score-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.score-header h2 {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.team-score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #212121;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.back-btn:hover {
+  background-color: #115293;
+}
+
+.scorecard-section {
+  margin-bottom: 30px;
+}
+
+.scorecard-section h3 {
+  font-size: 1.5rem;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.scorecard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fafafa;
+}
+
+.scorecard-table th,
+.scorecard-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.scorecard-table th {
+  background-color: #2e7d32;
+  color: #fff;
+  font-weight: bold;
+}
+
+.scorecard-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.scorecard-table td {
+  font-size: 1rem;
+}
+
+/* Style for Status column */
+.scorecard-table td:nth-child(4) {
+  font-weight: bold;
+}
+
+.scorecard-table td:nth-child(4):not(:empty) {
+  color: #d32f2f; /* Default to red for 'Out' */
+}
+
+.scorecard-table td:nth-child(4)[data-status="Not Out"] {
+  color: #2e7d32; /* Green for 'Not Out' */
+}
+
+.ball-log {
+  margin-top: 30px;
+}
+
+.ball-log h3 {
+  font-size: 1.5rem;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.ball-log ul {
+  list-style: none;
+  padding: 10px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.ball-log li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
