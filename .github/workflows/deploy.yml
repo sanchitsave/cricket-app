@@ -48,7 +48,7 @@ jobs:
 
             # Force pull latest changes
             git fetch origin
-            git reset --hard origin/main
+            git pull origin main
 
             # Update Backend (root directory)
             npm install
