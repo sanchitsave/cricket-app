@@ -107,19 +107,23 @@ function AdminDashboard() {
                     <option key={team.team_id} value={team.team_id}>{team.team_name}</option>
                   ))}
                 </select>
-                <input 
-                  value={newPlayer.player_name} 
-                  onChange={(e) => setNewPlayer({ ...newPlayer, player_name: e.target.value })} 
-                  placeholder="Player Name" 
+                <input
+                  value={newPlayer.player_name}
+                  onChange={(e) => setNewPlayer({ ...newPlayer, player_name: e.target.value })}
+                  placeholder="Player Name"
                 />
-                <input 
-                  value={newPlayer.role} 
-                  onChange={(e) => setNewPlayer({ ...newPlayer, role: e.target.value })} 
-                  placeholder="Role (e.g., Batsman)" 
-                />
+                <select
+                  value={newPlayer.role}
+                  onChange={(e) => setNewPlayer({ ...newPlayer, role: e.target.value })}
+                >
+                  <option value="">Select Role</option>
+                  <option value="Batsman">Batsman</option>
+                  <option value="Bowler">Bowler</option>
+                  <option value="All-Rounder">All-Rounder</option>
+                </select>
               </div>
-              <button 
-                onClick={handleAddPlayer} 
+              <button
+                onClick={handleAddPlayer}
                 style={{ marginTop: '10px', width: '100%', maxWidth: '200px' }}
               >
                 Add Player
