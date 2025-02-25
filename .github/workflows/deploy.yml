@@ -42,8 +42,13 @@ jobs:
             # Navigate to project directory
             cd ~/cricket-app
 
-            # Pull latest changes
-            git pull origin main
+            # Authenticate Git with PAT
+            git config --global credential.helper 'store --file ~/.git-credentials'
+            echo "https://${{ secrets.GH_TOKEN }}:x-oauth-basic@github.com" > ~/.git-credentials
+
+            # Force pull latest changes
+            git fetch origin
+            git reset --hard origin/main
 
             # Update Backend (root directory)
             npm install
