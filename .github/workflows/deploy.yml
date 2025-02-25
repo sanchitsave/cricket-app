@@ -22,8 +22,7 @@ jobs:
       # Install Backend Dependencies and Verify
       - name: Install Backend Dependencies
         run: |
-          cd server
-          npm install
+          npm install  # Backend files are in root
 
       # Install Frontend Dependencies and Build
       - name: Build Frontend
@@ -46,13 +45,12 @@ jobs:
             # Pull latest changes
             git pull origin main
 
-            # Update Backend
-            cd server
+            # Update Backend (root directory)
             npm install
             pm2 restart cricket-backend
 
-            # Update Frontend
-            cd ../client
+            # Update Frontend (client directory)
+            cd client
             npm install
             npm run build
             sudo pm2 restart cricket-frontend
