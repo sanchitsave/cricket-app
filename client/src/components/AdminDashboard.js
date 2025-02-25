@@ -128,7 +128,7 @@ function AdminDashboard() {
           </div>
         </section>
 
-        {/* Start Match Tile */}
+        {/* Start Match Tiles */}
         <section className="match-section" style={{ flex: '1', minWidth: '300px' }}>
           <h2>Start Match</h2>
           {!ongoingMatch ? (
