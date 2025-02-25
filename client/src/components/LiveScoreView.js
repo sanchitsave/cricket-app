@@ -10,14 +10,14 @@ function LiveScoreView() {
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/matches/ongoing')
+    axios.get('http://13.232.104.88:5000/matches/ongoing')
       .then(res => setMatches(res.data))
       .catch(err => console.error(err));
-    axios.get('http://localhost:5000/teams')
+    axios.get('http://13.232.104.88:5000/teams')
       .then(res => {
         setTeams(res.data);
         const playerPromises = res.data.map(team =>
-          axios.get(`http://localhost:5000/players/${team.team_id}`)
+          axios.get(`http://13.232.104.88:5000/players/${team.team_id}`)
             .then(playerRes => playerRes.data)
         );
         Promise.all(playerPromises)
@@ -30,7 +30,7 @@ function LiveScoreView() {
   useEffect(() => {
     if (selectedMatch) {
       const fetchBallRecords = () => {
-        axios.get(`http://localhost:5000/ball-records/${selectedMatch.match_id}`)
+        axios.get(`http://13.232.104.88:5000/ball-records/${selectedMatch.match_id}`)
           .then(res => setBallRecords(res.data))
           .catch(err => console.error(err));
       };

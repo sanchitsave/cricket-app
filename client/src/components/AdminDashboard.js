@@ -13,11 +13,11 @@ function AdminDashboard() {
   const [expandedTeam, setExpandedTeam] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/teams')
+    axios.get('http://13.232.104.88:5000/teams')
       .then(res => {
         setTeams(res.data);
         res.data.forEach(team => {
-          axios.get(`http://localhost:5000/players/${team.team_id}`)
+          axios.get(`http://13.232.104.88:5000/players/${team.team_id}`)
             .then(playerRes => {
               setPlayers(prev => ({ ...prev, [team.team_id]: playerRes.data }));
             })
@@ -26,17 +26,17 @@ function AdminDashboard() {
       })
       .catch(err => console.error(err));
 
-    axios.get('http://localhost:5000/matches/ongoing')
+    axios.get('http://13.232.104.88:5000/matches/ongoing')
       .then(res => { if (res.data.length > 0) setOngoingMatch(res.data[0]); })
       .catch(err => console.error(err));
   }, []);
 
   const handleAddTeam = () => {
-    axios.post('http://localhost:5000/teams', { team_name: newTeam })
+    axios.post('http://13.232.104.88:5000/teams', { team_name: newTeam })
       .then(res => {
         setTeams([...teams, res.data]);
         setNewTeam('');
-        axios.get(`http://localhost:5000/players/${res.data.team_id}`)
+        axios.get(`http://13.232.104.88:5000/players/${res.data.team_id}`)
           .then(playerRes => setPlayers(prev => ({ ...prev, [res.data.team_id]: playerRes.data })))
           .catch(err => console.error(err));
       })
@@ -44,7 +44,7 @@ function AdminDashboard() {
   };
 
   const handleAddPlayer = () => {
-    axios.post('http://localhost:5000/players', newPlayer)
+    axios.post('http://13.232.104.88:5000/players', newPlayer)
       .then(res => {
         const teamId = res.data.team_id;
         setPlayers(prev => ({ ...prev, [teamId]: [...(prev[teamId] || []), res.data] }));
@@ -59,7 +59,7 @@ function AdminDashboard() {
 
   const handleStartMatch = () => {
     if (matchTeams.team1_id && matchTeams.team2_id && matchTeams.team1_id !== matchTeams.team2_id) {
-      axios.post('http://localhost:5000/matches', matchTeams)
+      axios.post('http://13.232.104.88:5000/matches', matchTeams)
         .then(res => { setOngoingMatch(res.data); setMatchTeams({ team1_id: '', team2_id: '' }); })
         .catch(err => console.error(err));
     } else {

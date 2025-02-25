@@ -19,7 +19,7 @@ function ScoringPanel({ match, teams, players, setOngoingMatch }) {
   const [currentOverBowler, setCurrentOverBowler] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/ball-records/${match.match_id}`)
+    axios.get(`http://13.232.104.88:5000/ball-records/${match.match_id}`)
       .then(res => {
         const records = res.data;
         setBallRecords(records);
@@ -53,7 +53,7 @@ function ScoringPanel({ match, teams, players, setOngoingMatch }) {
   }, [match.match_id]);
 
   const handleScoreBall = () => {
-    axios.post('http://localhost:5000/score-ball', ballData)
+    axios.post('http://13.232.104.88:5000/score-ball', ballData)
       .then(res => {
         setBallRecords([...ballRecords, res.data]);
         const isExtra = ballData.extras === 'wide' || ballData.extras === 'no_ball';
@@ -79,9 +79,9 @@ function ScoringPanel({ match, teams, players, setOngoingMatch }) {
   };
 
   const handleUndoBall = () => {
-    axios.delete(`http://localhost:5000/ball-records/${match.match_id}/last`)
+    axios.delete(`http://13.232.104.88:5000/ball-records/${match.match_id}/last`)
       .then(() => {
-        axios.get(`http://localhost:5000/ball-records/${match.match_id}`)
+        axios.get(`http://13.232.104.88:5000/ball-records/${match.match_id}`)
           .then(res => {
             const records = res.data;
             setBallRecords(records);
@@ -125,7 +125,7 @@ function ScoringPanel({ match, teams, players, setOngoingMatch }) {
   };
 
   const handleEndMatch = () => {
-    axios.put(`http://localhost:5000/matches/${match.match_id}`, { status: 'completed' })
+    axios.put(`http://13.232.104.88:5000/matches/${match.match_id}`, { status: 'completed' })
       .then(() => setOngoingMatch(null))
       .catch(err => console.error(err));
   };
