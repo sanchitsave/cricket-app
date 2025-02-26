@@ -29,7 +29,7 @@ db.connect(err => {
 });
 
 // Serve static files from the React build folder
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 // Helper function to update player stats
 const updatePlayerStats = (match_id, player_id, runs_scored, balls_faced, wickets_taken, overs_bowled, callback) => {
