@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - master  # Triggers on merge/push to main branch
+      - master  # Triggers on merge/push to master branch
 
 jobs:
   deploy:
@@ -46,9 +46,19 @@ jobs:
             git config --global credential.helper 'store --file ~/.git-credentials'
             echo "https://${{ secrets.GH_TOKEN }}:x-oauth-basic@github.com" > ~/.git-credentials
 
-            # Force pull latest changes
+            # Debug: Show current branch and status
+            echo "Current branch:"
+            git branch --show-current
+            echo "Git status:"
+            git status
+
+            # Force sync with remote master
             git fetch origin
-            git pull origin master
+            git reset --hard origin/master
+
+            # Debug: Show latest commit
+            echo "Latest commit after reset:"
+            git log -1
 
             # Update Backend (root directory)
             npm install
