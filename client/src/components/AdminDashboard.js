@@ -69,7 +69,7 @@ function AdminDashboard() {
 
   return (
     <div className="admin-dashboard">
-      <h1>Admin Dashboard</h1>
+      <h1>Admin Dashboarddddd</h1>
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
         {/* Manage Teams/Players Tile */}
         <section className="team-section" style={{ flex: '1', minWidth: '300px' }}>
